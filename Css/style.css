@@ -558,8 +558,9 @@ html {
     border-bottom: none;
     background-color: #134e4a;
     display: flex;
-    justify-content: right;
-    
+    justify-content:space-between;
+    flex-direction: row-reverse;
+    gap: 20px;
   }
   .card-body button
   {
