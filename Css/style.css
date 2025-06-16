@@ -1,0 +1,524 @@
+:root {
+  --primary: #0d9488;
+  --secondary: #134e4a;
+  --bg: #f8f9fa;
+  --text: #212529;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Tajawal', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  /* تم إزالة overflow-x: hidden للسماح بالتمرير الأفقي عند الحاجة */
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* إضافة container عام */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+h2 {
+  text-align: center;
+}
+
+.contact i {
+  color: var(--secondary);
+}
+
+/* تحسين التنقل */
+nav {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  padding: 0.75rem 0;
+  width: 100%;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+nav .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: var(--primary);
+  text-decoration: none;
+  flex-shrink: 0;
+  min-width: 0; /* للسماح بالتقليص عند الحاجة */
+  max-width: 70%; /* منع أخذ مساحة كبيرة */
+}
+
+.nav-link.nav-hover {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link.nav-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav-link.nav-hover:hover {
+  color: var(--primary);
+}
+
+.nav-link.nav-hover:hover::after {
+  width: 100%;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+  display: block;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--primary);
+}
+
+/* تحسين الهيدر */
+header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  /* fallback في حالة عدم وجود الصورة */
+  background-image: url('../assets/bg.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  position: relative;
+}
+
+/* إضافة overlay للهيدر */
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+header > * {
+  position: relative;
+  z-index: 2;
+}
+
+header h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+  font-weight: 900;
+}
+
+header p {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  max-width: 50ch;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+header a.cta {
+  background: var(--primary);
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+header a.cta:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* تحسين الأقسام */
+section {
+  padding: 4rem 0;
+  width: 100%;
+  scroll-margin-top: 80px;
+}
+
+section .container {
+  text-align: right;
+}
+
+section h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 2rem;
+  color: var(--primary);
+  text-align: center;
+}
+
+.about p {
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 70ch;
+  margin: 0 auto;
+}
+
+.about-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  margin-top: 2rem;
+}
+
+/* تحسين الفوتر */
+footer {
+  background: var(--secondary);
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+footer a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* تحسين الشريط الجانبي الاجتماعي */
+.social-sidebar {
+  position: fixed;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.social-sidebar a {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.facebook {
+  background: #1877F2;
+}
+
+.whatsapp {
+  background: #25D366;
+}
+
+.phone {
+  background: #007bff;
+}
+
+.social-sidebar a:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* تحسين واتساب العائم */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.logo-img {
+  width: 60px;
+  height: auto;
+  transition: all 0.3s ease;
+  flex-shrink: 0; /* منع تقليص الصورة */
+}
+
+.site-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  white-space: nowrap; /* منع كسر النص */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* استعلامات الوسائط المحسنة */
+@media (min-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  nav ul {
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  section {
+    padding: 3rem 0;
+  }
+  
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .social-sidebar {
+    left: 10px;
+  }
+  
+  .social-sidebar a {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo-img {
+    width: 35px; /* تصغير أكثر */
+    height: auto;
+  }
+
+  .site-name {
+    font-size: 0.85rem; /* تصغير النص أكثر */
+  }
+  
+  nav .logo {
+    gap: 0.25rem; /* تقليل المسافة */
+    font-size: 0.85rem;
+    max-width: 60%; /* تقليل العرض الأقصى */
+  }
+  
+  nav {
+    padding: 0.5rem 0;
+  }
+  
+  nav ul {
+    gap: 0.5rem; /* تقليل المسافات */
+    flex-wrap: wrap;
+  }
+  
+  nav ul li a {
+    font-size: 0.8rem; /* تصغير النص */
+    padding: 0.25rem 0.5rem;
+  }
+  
+  section {
+    padding: 2rem 0;
+  }
+  
+  header {
+    padding: 1rem;
+    min-height: 85vh;
+  }
+  
+  .social-sidebar {
+    left: 8px;
+  }
+  
+  .social-sidebar a {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+  
+  .floating-whatsapp {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 0.5rem;
+  }
+  
+  .logo-img {
+    width: 30px; /* تصغير أكثر للشاشات الصغيرة جداً */
+  }
+
+  .site-name {
+    font-size: 0.75rem; /* نص أصغر */
+  }
+  
+  nav .logo {
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    max-width: 50%;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  nav ul li {
+    width: auto;
+    text-align: center;
+  }
+  
+  section {
+    padding: 1.5rem 0;
+  }
+  
+  section .container {
+    padding: 0 0.75rem;
+  }
+  
+  header {
+    padding: 1rem 0.5rem;
+  }
+  
+  .social-sidebar {
+    display: none;
+  }
+}
+
+/* إضافة حماية إضافية للعناصر */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* تحسين الأداء */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* إصلاح مشاكل التمرير */
+html {
+  scroll-behavior: smooth;
+}
+
+/* إضافة متغيرات للشاشات الصغيرة */
+@media (max-width: 320px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .logo-img {
+    width: 25px; /* تصغير للشاشات الصغيرة جداً */
+  }
+
+  .site-name {
+    font-size: 0.7rem;
+    display: none; /* إخفاء النص في الشاشات الصغيرة جداً */
+  }
+  
+  nav .logo {
+    gap: 0;
+    justify-content: center;
+    max-width: 40px;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  header p {
+    font-size: 0.9rem;
+  }
+  
+  section h2 {
+    font-size: 1.25rem;
+  }
+}
