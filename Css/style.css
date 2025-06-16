@@ -468,9 +468,7 @@ footer a:hover {
     padding: 1rem 0.5rem;
   }
   
-  .social-sidebar {
-    display: none;
-  }
+  
 }
 
 /* إضافة حماية إضافية للعناصر */
@@ -522,3 +520,76 @@ html {
     font-size: 1.25rem;
   }
 }
+
+  /* مودال RTL وتنسيق التفاصيل */
+  .modal-body {
+    direction: rtl;
+    text-align: right;
+    font-size: 1.1rem;
+    line-height: 2;
+  }
+
+  .modal-body ul {
+    list-style: none; /* إزالة النقط */
+    padding: 0;
+    margin: 0;
+  }
+
+  .modal-body ul li {
+    position: relative;
+    padding-right: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .modal-body ul li::before {
+    content: "✔️"; /* علامة صح */
+    position: absolute;
+    right: 0;
+    color: #0d9488; /* لون متناسق */
+    font-size: 1rem;
+    top: 0;
+  }
+
+  .modal-content {
+    border-radius: 1rem;
+  }
+
+  .modal-header {
+    border-bottom: none;
+    background-color: #134e4a;
+    display: flex;
+    justify-content: right;
+    
+  }
+  .card-body button
+  {
+    
+ background-color: #0d9488;       /* لون أساسي */
+  color: #fff;                     /* لون النص */
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+
+  
+  }
+   .card-body button:hover
+   {
+    background-color: #0b8279;      
+  transform: scale(1.05);         
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+   }
+
+  .modal-title {
+    font-weight: bold;
+    text-align: center;
+  }
+  footer p
+  {
+    font-family:Arial, Helvetica, sans-serif;
+  
+  }
+
